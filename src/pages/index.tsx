@@ -4,7 +4,7 @@ import Link from "next/link";
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const hello = api.example.hello.useQuery({ num: 42 });
 
   return (
     <>
@@ -43,7 +43,14 @@ export default function Home() {
             </Link>
           </div>
           <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+            {hello.data ? (
+              <div>
+                <p className="text-blue-500">Add 10: ${hello.data.add10}</p>
+                <p className="text-yellow-500">Random: ${hello.data.random}</p>
+              </div>
+            ) : (
+              "Loading tRPC query..."
+            )}
           </p>
         </div>
       </main>
