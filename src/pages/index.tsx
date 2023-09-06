@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
+import { Add10 } from "~/components/Add10";
+import { Random } from "~/components/Random";
 
 import { api } from "~/utils/api";
 
@@ -45,8 +47,8 @@ export default function Home() {
           <p className="text-2xl text-white">
             {hello.data ? (
               <div>
-                <p className="text-blue-500">Add 10: ${hello.data.add10}</p>
-                <p className="text-yellow-500">Random: ${hello.data.random}</p>
+                <Add10 />
+                <Random />
               </div>
             ) : (
               "Loading tRPC query..."
