@@ -4,7 +4,7 @@ import { api } from "~/utils/api";
 export const Add10: FC = () => {
   const hello = api.example.hello.useQuery({ num: 42 });
 
-  if (!hello.data) return null;
+  if (!hello.data) return <p>Loading...</p>;
 
   return <p className="text-blue-500">Add 10: ${hello.data.add10}</p>;
 };
